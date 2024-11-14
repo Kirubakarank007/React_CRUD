@@ -1,13 +1,13 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Inventory from './Components/getInventoryItem/inventory';
+import Inventorys from './Components/getInventoryItem/Inventory.jsx';
 
 function App() {
 
   const route=createBrowserRouter([
     {
       path:'/',
-      element:<Inventory/>
+      element:<Inventorys/>
     },
     {
       path:'/add',
@@ -16,8 +16,7 @@ function App() {
     {
       path:'/edit',
       element:"Inventory edit page"
-    } 
-
+    }   
   ])
 
   return (

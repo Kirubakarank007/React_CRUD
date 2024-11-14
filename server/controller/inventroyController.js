@@ -26,7 +26,7 @@ export const getAll=async(req,res)=>{
         res.status(200).json(inventoryData);
         
     } catch (err) {
-        res.status(500).json({error:`${err}`})
+        res.status(500).json({error:err})
     }
 }
 
@@ -41,8 +41,8 @@ export const getOne=async (req,res)=>{
 
         res.status(200).json(inventoryExit);
 
-    } catch (error) {
-        res.status(500).json({error:`${err}`})
+    } catch (err) {
+        res.status(500).json({error:err})
     }
 }
 
@@ -60,8 +60,8 @@ export const update=async(req,res)=>{
         res.status(200).json(updatedData)
 
         
-    } catch (error) {
-        res.status(500).json({error:`${err}`})
+    } catch (err) {
+        res.status(500).json({error:err})
         
     }
 }
@@ -78,7 +78,7 @@ export const deleteData=async(req,res)=>{
 
         await Inventory.findByIdAndDelete(id);
         res.status(200).json({msg:"Inventory data deleted successfully"})
-    } catch (error) {
-        res.status(500).json({error:`${err}`})
+    } catch (err) {
+        res.status(500).json({error:err})
     }
 }
