@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const inventorySchema=mongoose.Schema({
     itemName:{
@@ -30,4 +30,4 @@ const inventorySchema=mongoose.Schema({
 
 
 
-module.exports=mongoose.model("Inventory",inventorySchema)
+export default mongoose.model("Inventory",inventorySchema)

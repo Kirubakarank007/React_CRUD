@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import cors from 'cors'
-
+import route from './routes/inventoryRoute.js'
 
 
 const app=express();
@@ -17,6 +17,8 @@ console.log("MongoDB URL:", process.env.MONGOURL);
 const PORT=process.env.PORT || 5005;
 const URL =process.env.MONGOURL;
 
+
+
 mongoose.createConnection(URL)
 mongoose.connect(URL).then(()=>{
     console.log("DB connected successfully");
@@ -25,3 +27,5 @@ mongoose.connect(URL).then(()=>{
         console.log(`Server is running on port : ${PORT} `)
     })
 }).catch(error=> console.log(error))
+
+app.use("/api",route);
