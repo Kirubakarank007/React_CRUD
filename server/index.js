@@ -10,6 +10,7 @@ const app=express();
 app.use(bodyParser.json());
 app.use(cors());
 dotenv.config();
+app.use(express.json());
 console.log("MongoDB URL:", process.env.MONGOURL); 
 
 
@@ -28,4 +29,4 @@ mongoose.connect(URL).then(()=>{
     })
 }).catch(error=> console.log(error))
 
-app.use("/api",route);
+app.use("/item",route);

@@ -1,5 +1,5 @@
 import React from 'react'
-import './inventory.css'
+import './Inventory.css'
 import { Link } from 'react-router-dom'
 
 const Inventory = () => {

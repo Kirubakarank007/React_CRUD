@@ -9,7 +9,7 @@ export const create =async (req,res)=>{
         }
 
         const savedData=await inventoryData.save();
-        res.status(200).json(savedData);
+        res.status(200).json({savedData,msg:"Item created successfully"});
 
     }catch (err){
         res.status(500).json({error:err});
