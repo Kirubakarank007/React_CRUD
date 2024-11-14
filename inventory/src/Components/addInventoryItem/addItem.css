@@ -1,0 +1,53 @@
+.add-items{
+    width: 25%;
+    background-color: white;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.065);
+    border-radius: 5px;
+    margin: 50px auto;
+    padding: 40px;
+}
+
+.add-items .back{
+    color: purple;
+    font-size: 20px;
+}
+
+.add-item-form .input-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.add-item-form{
+    margin-top: 20px;
+}
+
+.add-item-form .input-item label{
+    margin-bottom: 5px;
+}
+
+.add-item-form .input-item input{
+    margin-bottom: 5px;
+    padding: 10px;
+    outline: none;
+}
+
+.add-item-form .input-item button{
+    border: none;
+    outline: none;
+    margin-top: 15px;
+    background-color: purple;
+    color: white;
+    font-weight: 600;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.065);
+}
+
+.add-items h3{
+    margin-top: 10px;
+    text-align: center;
+}
