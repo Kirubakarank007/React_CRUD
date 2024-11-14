@@ -1,5 +1,5 @@
 import React from 'react'
-import './Inventory.css'
+import './inventory.css'
 import { Link } from 'react-router-dom'
 
 const Inventory = () => {
@@ -27,8 +27,8 @@ const Inventory = () => {
             <td>tasty</td>
             <td>fruits</td>
             <td className='action-button'>
-              <button>Delete</button>
-              <Link to={'/edit'}>Edit</Link>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+              <Link to={'/edit'}><i class="fa-solid fa-pen-clip"></i></Link>
             </td>
           </tr>
         </tbody>

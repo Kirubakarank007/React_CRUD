@@ -1,17 +1,18 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Inventorys from './Components/getInventoryItem/Inventory.jsx';
+import Inventory from './Components/getInventoryItem/inventory.jsx';
+import AddItem from './Components/addInventoryItem/addItem.jsx';
 
 function App() {
 
   const route=createBrowserRouter([
     {
       path:'/',
-      element:<Inventorys/>
+      element:<Inventory/>
     },
     {
       path:'/add',
-      element:"Inventory add page"
+      element:<AddItem/>
     },
     {
       path:'/edit',
