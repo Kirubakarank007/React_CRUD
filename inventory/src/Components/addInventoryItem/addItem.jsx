@@ -37,7 +37,7 @@ const AddItem = () => {
   
   return (
     <div className='add-items'>
-      <Link to={'/'} className='back'><i class="fa-solid fa-circle-chevron-left"> back</i></Link>
+      <Link to={'/'} className='back'><i className="fa-solid fa-circle-chevron-left"> back</i></Link>
       <h3>Add New Inventory Item</h3>
       <form action="" className='add-item-form' onSubmit={submitForm}>
         <div className="input-item">

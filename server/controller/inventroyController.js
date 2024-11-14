@@ -57,7 +57,7 @@ export const update=async(req,res)=>{
         }
 
         const updatedData=await Inventory.findByIdAndUpdate(id,req.body,{new:true})
-        res.status(200).json(updatedData)
+        res.status(200).json({updatedData,msg:"Item updated successfully"})
 
         
     } catch (err) {
