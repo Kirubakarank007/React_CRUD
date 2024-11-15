@@ -30,16 +30,39 @@ const EditItem = () => {
       }).catch(err=>console.log(err))
    },[id])
 
+   const validation=(item)=>{
+    if (!item.itemName) {
+      toast.error("Please fill Item Name field", { position: "top-center" });
+      return false; // Stop form submission if any field is empty
+    }else if(!item.quantity){
+      toast.error("Please fill quantity field")
+      return false; 
+    }else if(!item.price ){
+      toast.error("Please fill Price field")
+      return false; 
+    }else if(!item.description ){
+      toast.error("Please fill Description field")
+      return false; 
+    }else if(!item.category){
+      toast.error("Please fill Category field")
+      return false; 
+    }else{
+      return true;
+    }
+  }
+
    const submitForm = async (e) => {
     e.preventDefault();
+    const validate=validation(item);
     console.log(item); // Log to confirm the data being sent
-    try {
+    if(validate){
+      try {
       const response = await axios.put(`http://localhost:5000/item/update/${id}`, item);
         toast.success(response.data.msg,{position:"top-center"});
         navigate("/")
     } catch (error) {
       console.error("Error:", error);
-    }
+    }}
   };
   return (
     <div className='add-items'>

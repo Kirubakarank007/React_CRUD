@@ -21,7 +21,7 @@ const URL =process.env.MONGOURL;
 
 
 mongoose.createConnection(URL)
-mongoose.connect(URL).then(()=>{
+mongoose.connect(URL,{ssl: true, tlsAllowInvalidCertificates: true }).then(()=>{
     console.log("DB connected successfully");
 
     app.listen(PORT,()=>{

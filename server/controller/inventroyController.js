@@ -77,7 +77,7 @@ export const deleteData=async(req,res)=>{
         }
 
         await Inventory.findByIdAndDelete(id);
-        res.status(200).json({msg:"Inventory data deleted successfully"})
+        res.status(200).json({msg:"item deleted successfully"})
     } catch (err) {
         res.status(500).json({error:err})
     }

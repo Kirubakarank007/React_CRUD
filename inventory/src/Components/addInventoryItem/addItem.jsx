@@ -23,16 +23,40 @@ const AddItem = () => {
      setItem({...item,[name]:value})
   }
 
+
+  const validation=(item)=>{
+    if (!item.itemName) {
+      toast.error("Please fill Item Name field", { position: "top-center" });
+      return false; // Stop form submission if any field is empty
+    }else if(!item.quantity){
+      toast.error("Please fill quantity field")
+      return false; 
+    }else if(!item.price ){
+      toast.error("Please fill Price field")
+      return false; 
+    }else if(!item.description ){
+      toast.error("Please fill Description field")
+      return false; 
+    }else if(!item.category){
+      toast.error("Please fill Category field")
+      return false; 
+    }else{
+      return true;
+    }
+  }
+
   const submitForm = async (e) => {
     e.preventDefault();
+    const validate=validation(item);
     console.log(item); // Log to confirm the data being sent
-    try {
-      const response = await axios.post("http://localhost:5000/item/create", item);
-        toast.success(response.data.msg,{position:"top-center"});
-        navigate("/")
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    if(validate){ 
+      try {
+        const response = await axios.post("http://localhost:5000/item/create", item);
+          toast.success(response.data.msg,{position:"top-center"});
+          navigate("/")
+      } catch (error) {
+        console.error("Error:", error);
+      }}
   };
   
   return (
@@ -47,12 +71,12 @@ const AddItem = () => {
 
         <div className="input-item">
             <label htmlFor="quantity">Quantity</label>
-            <input type="number"onChange={inputHandler}   id='quantity' name='quantity' autoComplete='off' placeholder='Quantity'/>
+            <input type="number"onChange={inputHandler} min={1}  id='quantity' name='quantity' autoComplete='off' placeholder='Quantity'/>
         </div>
 
         <div className="input-item">
             <label htmlFor="price">Price</label>
-            <input type="number"onChange={inputHandler}  id='price' name='price' autoComplete='off' placeholder='Price'/>
+            <input type="number"onChange={inputHandler} min={1} id='price' name='price' autoComplete='off' placeholder='Price'/>
         </div>
 
         <div className="input-item">
