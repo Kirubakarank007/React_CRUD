@@ -29,4 +29,4 @@ mongoose.connect(URL,{ssl: true, tlsAllowInvalidCertificates: true }).then(()=>{
     })
 }).catch(error=> console.log(error))
 
-app.use("/item",route);
+app.use("/items",route);

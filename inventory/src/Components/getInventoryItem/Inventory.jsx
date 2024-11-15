@@ -10,7 +10,7 @@ const Inventory = () => {
 
   useEffect(()=>{
     const fetchData=async()=>{
-     const response= await axios.get("http://localhost:5000/item/getall")
+     const response= await axios.get("http://localhost:5000/items/getall")
      setItems(response.data);
     };
 
@@ -18,7 +18,7 @@ const Inventory = () => {
   },[])
 
   const deleteItem=async(item_id,item_name)=>{
-    await axios.delete(`http://localhost:5000/item/delete/${item_id}`)
+    await axios.delete(`http://localhost:5000/items/delete/${item_id}`)
     .then((res)=>{
       setItems((prevItem)=>prevItem.filter((item)=>item._id !== item_id))
       toast.success(`${item_name} ${res.data.msg}`)

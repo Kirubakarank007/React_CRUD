@@ -51,7 +51,7 @@ const AddItem = () => {
     console.log(item); // Log to confirm the data being sent
     if(validate){ 
       try {
-        const response = await axios.post("http://localhost:5000/item/create", item);
+        const response = await axios.post("http://localhost:5000/items/create", item);
           toast.success(response.data.msg,{position:"top-center"});
           navigate("/")
       } catch (error) {
