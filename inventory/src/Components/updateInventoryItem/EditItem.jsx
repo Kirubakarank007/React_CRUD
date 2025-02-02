@@ -3,7 +3,7 @@ import '../addInventoryItem/AddItem.css'
 import axios from 'axios'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
-
+import { URL } from '../addInventoryItem/AddItem'
 const EditItem = () => {
 
   const items={
@@ -24,7 +24,7 @@ const EditItem = () => {
 
 
    useEffect(()=>{
-      axios.get(`http://localhost:5000/items/getone/${id}`)
+      axios.get(`${URL}/items/getone/${id}`)
       .then((response)=>{
         setItem(response.data)
       }).catch(err=>console.log(err))
@@ -57,7 +57,7 @@ const EditItem = () => {
     console.log(item); // Log to confirm the data being sent
     if(validate){
       try {
-      const response = await axios.put(`http://localhost:5000/items/update/${id}`, item);
+      const response = await axios.put(`${URL}/items/update/${id}`, item);
         toast.success(response.data.msg,{position:"top-center"});
         navigate("/")
     } catch (error) {

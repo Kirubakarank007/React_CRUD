@@ -3,6 +3,7 @@ import './Inventory.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { URL } from '../addInventoryItem/AddItem'
 
 const Inventory = () => {
 
@@ -10,7 +11,7 @@ const Inventory = () => {
 
   useEffect(()=>{
     const fetchData=async()=>{
-     const response= await axios.get("http://localhost:5000/items/getall")
+     const response= await axios.get(`${URL}/items/getall`)
      setItems(response.data);
     };
 
@@ -18,7 +19,7 @@ const Inventory = () => {
   },[])
 
   const deleteItem=async(item_id,item_name)=>{
-    await axios.delete(`http://localhost:5000/items/delete/${item_id}`)
+    await axios.delete(`${URL}/items/delete/${item_id}`)
     .then((res)=>{
       setItems((prevItem)=>prevItem.filter((item)=>item._id !== item_id))
       toast.success(`${item_name} ${res.data.msg}`)
