@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
+export const URL="https://react-crud-backend-dnxi.onrender.com";
 const AddItem = () => {
 
   const items={
@@ -51,7 +52,7 @@ const AddItem = () => {
     console.log(item); // Log to confirm the data being sent
     if(validate){ 
       try {
-        const response = await axios.post("http://localhost:5000/items/create", item);
+        const response = await axios.post(`${URL}/items/create`, item);
           toast.success(response.data.msg,{position:"top-center"});
           navigate("/")
       } catch (error) {
